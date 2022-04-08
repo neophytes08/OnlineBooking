@@ -19,7 +19,7 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@core/enum": ["src/_core/enum/index"],
-      "@auth/*":["src/auth/*"],
+      "@module/auth/*":["src/auth/*"],
     }
   },
   "include": ["./src/**/*.ts", "./test/**/*.ts"]
