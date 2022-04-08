@@ -38,6 +38,7 @@
     "@nestjs/common": "^8.0.0",
     "@nestjs/core": "^8.0.0",
     "@nestjs/jwt": "^8.0.0",
+    "@nestjs/mongoose": "^9.0.3",
     "@nestjs/passport": "^8.1.0",
     "@nestjs/platform-express": "^8.2.6",
     "@nestjs/swagger": "^5.2.0",
@@ -60,6 +61,8 @@
     "express-useragent": "^1.0.15",
     "fastify-swagger": "^4.13.1",
     "helmet": "^5.0.2",
+    "mongodb": "^3.7.3",
+    "mongoose": "^6.2.10",
     "object-hash": "^2.2.0",
     "pascal-case": "^3.1.2",
     "passport": "^0.5.2",
@@ -72,7 +75,8 @@
     "rxjs": "^7.5.2",
     "swagger-ui-express": "^4.3.0",
     "typeorm": "^0.2.41",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "webpack": "^5.72.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
@@ -112,6 +116,9 @@
       "**/*.(t|j)s"
     ],
     "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "testEnvironment": "node",
+    "moduleNameMapper": {
+      "@module/auth/(.*)": ["<rootDir>/auth/$1"]
+    }
   }
 }
