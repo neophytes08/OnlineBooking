@@ -118,7 +118,24 @@
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
     "moduleNameMapper": {
-      "@module/auth/(.*)": ["<rootDir>/auth/$1"]
+      "@core/enum": [
+        "<rootDir>/_core/enum/index"
+      ],
+      "@core/interface": [
+        "<rootDir>/_core/interface/index"
+      ],
+      "@core/decorator": [
+        "<rootDir>/_core/decorator/index"
+      ],
+      "@module/auth/(.*)": [
+        "<rootDir>/auth/$1"
+      ],
+      "@module/user/(.*)": [
+        "<rootDir>/user/$1"
+      ],
+      "@module/company/(.*)": [
+        "<rootDir>/company/$1"
+      ]
     }
   }
 }
