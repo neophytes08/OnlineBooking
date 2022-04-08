@@ -1,18 +1,18 @@
-import { CompanyService } from '@module/company/company.service';
-import { Company } from '@module/company/entities/company.entity';
-import { User } from '@module/user/entities/user.entity';
-import { UserService } from '@module/user/user.service';
 import { Test, TestingModule } from '@nestjs/testing';
+import { UserController } from './user.controller';
+import { UserService } from './user.service';
+import { CompanyService } from '@module/company/company.service';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { AuthController } from './auth.controller';
+import { Company } from '@module/company/entities/company.entity';
+import { User } from './entities/user.entity';
 
-describe('AuthController', () => {
-  let controller: AuthController;
+describe('UserController', () => {
+  let controller: UserController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [AuthController],
+      controllers: [UserController],
       providers: [
         UserService,
         CompanyService,
@@ -27,7 +27,7 @@ describe('AuthController', () => {
       ],
     }).compile();
 
-    controller = module.get<AuthController>(AuthController);
+    controller = module.get<UserController>(UserController);
   });
 
   it('should be defined', () => {

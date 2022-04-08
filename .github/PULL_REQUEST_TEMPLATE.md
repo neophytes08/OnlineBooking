@@ -7,6 +7,6 @@
 - [ ] All existing tests are passing
 - [ ] Tests for the changes are included
 
-## Connected JIRA ticket
+## Connected ONLINEBOOKING ticket
 
 please specify here:
