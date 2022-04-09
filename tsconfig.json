@@ -21,9 +21,12 @@
       "@core/enum": ["src/_core/enum/index"],
       "@core/interface": ["src/_core/interface/index"],
       "@core/decorator": ["src/_core/decorator/index"],
+      "@core/strategy": ["src/_core/strategy/index"],
+      "@core/event": ["src/_core/event-listener/index"],
       "@module/auth/*":["src/auth/*"],
       "@module/user/*":["src/user/*"],
       "@module/company/*":["src/company/*"],
+      "@module/activity/*":["src/activity/*"],
     }
   },
   "include": ["./src/**/*.ts", "./test/**/*.ts"]
