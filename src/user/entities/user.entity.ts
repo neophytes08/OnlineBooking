@@ -2,14 +2,17 @@ import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
   ObjectID,
   ObjectIdColumn,
+  OneToMany,
   OneToOne,
   UpdateDateColumn,
 } from 'typeorm';
 import { UserType } from '@core/enum';
 import { Company } from '@module/company/entities/company.entity';
+import * as bcrypt from 'bcrypt';
+import { classToPlain, Exclude } from 'class-transformer';
+import { Activity } from '@module/activity/entities/activity.entity';
 
 @Entity('user')
 export class User {
@@ -26,6 +29,7 @@ export class User {
   username: string;
 
   @Column()
+  @Exclude()
   password: string;
 
   @Column()
@@ -35,6 +39,7 @@ export class User {
   verifiedStatus: string;
 
   @Column()
+  @Exclude()
   salt: string;
 
   @CreateDateColumn()
@@ -43,11 +48,30 @@ export class User {
   @UpdateDateColumn()
   updateDate: Date;
 
+  // validations
+  validatePassword(password: string): boolean {
+    const hash = bcrypt.hashSync(password, this.salt);
+    return hash === this.password;
+  }
+
   /*
    * Relationships
    */
 
-  @OneToOne(() => Company)
-  @JoinColumn()
+  @OneToOne(() => Company, (company) => company.user)
   company: Company;
+
+  @OneToMany(() => Activity, (activity) => activity.owner, {
+    cascade: ['insert', 'update', 'remove'],
+  })
+  owner?: Activity[];
+
+  @OneToMany(() => Activity, (activity) => activity.editor, {
+    cascade: ['insert', 'update', 'remove'],
+  })
+  editor?: Activity[];
+
+  toJSON() {
+    return classToPlain(this);
+  }
 }

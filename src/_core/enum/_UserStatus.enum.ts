@@ -1,8 +1,9 @@
 export enum UserStatus {
   ACTIVE = 'ACTIVE',
-  PENDING = 'PENDING', // applicable to clients only
-  DECLINED = 'DECLINED', // applicable to clients only,
-  VERIFIED = 'VERIFIED', // applicable for clients only
+  PENDING = 'PENDING',
+  DECLINED = 'DECLINED',
+  VERIFIED = 'VERIFIED',
+  UNVERIFIED = 'UNVERIFIED',
   DEACTIVATED = 'DEACTIVATED',
   DELETED = 'DELETED',
 }

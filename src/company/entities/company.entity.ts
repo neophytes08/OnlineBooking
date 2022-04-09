@@ -52,6 +52,6 @@ export class Company {
    */
 
   @OneToOne(() => User)
-  @JoinColumn()
+  @JoinColumn({ name: 'userId' })
   user: User;
 }
